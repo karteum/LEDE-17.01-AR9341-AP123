@@ -651,3 +651,9 @@ define LegacyDevice/NBG_460N_550N_550NH
   DEVICE_PACKAGES := kmod-rtc-pcf8563
 endef
 LEGACY_DEVICES += NBG_460N_550N_550NH
+
+define LegacyDevice/AP123
+  DEVICE_TITLE := Headele AP123-based HDR1004GFO/HDR1003GWO
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+endef
+LEGACY_DEVICES += AP123

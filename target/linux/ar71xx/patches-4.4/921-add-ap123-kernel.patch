@@ -1,0 +1,57 @@
+diff --git a/arch/mips/ath79/Kconfig b/arch/mips/ath79/Kconfig
+index 8bb938a..649583b 100644
+--- a/arch/mips/ath79/Kconfig
++++ b/arch/mips/ath79/Kconfig
+@@ -2,6 +2,19 @@ if ATH79
+ 
+ menu "Atheros AR71XX/AR724X/AR913X machine selection"
+ 
++config ATH79_MACH_AP123
++	bool "Atheros AP123-based Headele HDR1004GFO boards"
++	select SOC_AR934X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_USB
++	select ATH79_DEV_WMAC
++	help
++	  Say 'Y' here if you want your kernel to support the
++	  Headele AP123-based HDR1004GFO/HDR1003GWO routers.
++
+ config ATH79_MACH_AP121
+ 	bool "Atheros AP121 reference board"
+ 	select SOC_AR933X
+diff --git a/arch/mips/ath79/Makefile b/arch/mips/ath79/Makefile
+index c91d03f..0555325 100644
+--- a/arch/mips/ath79/Makefile
++++ b/arch/mips/ath79/Makefile
+@@ -48,6 +48,7 @@ obj-$(CONFIG_ATH79_MACH_ANTMINER_S1)		+= mach-antminer-s1.o
+ obj-$(CONFIG_ATH79_MACH_ANTMINER_S3)		+= mach-antminer-s3.o
+ obj-$(CONFIG_ATH79_MACH_ANTROUTER_R1)		+= mach-antrouter-r1.o
+ obj-$(CONFIG_ATH79_MACH_AP121)			+= mach-ap121.o
++obj-$(CONFIG_ATH79_MACH_AP123)			+= mach-ap123.o
+ obj-$(CONFIG_ATH79_MACH_AP132)			+= mach-ap132.o
+ obj-$(CONFIG_ATH79_MACH_AP136)			+= mach-ap136.o
+ obj-$(CONFIG_ATH79_MACH_AP143)			+= mach-ap143.o
+diff --git a/arch/mips/ath79/machtypes.h b/arch/mips/ath79/machtypes.h
+index b9a8e3e..516e21d 100644
+--- a/arch/mips/ath79/machtypes.h
++++ b/arch/mips/ath79/machtypes.h
+@@ -16,7 +16,7 @@
+ 
+ enum ath79_mach_type {
+ 	ATH79_MACH_GENERIC_OF = -1,	/* Device tree board */
+-	ATH79_MACH_GENERIC = 0,
++	ATH79_MACH_AP123 = 0,
+ 	ATH79_MACH_A40,				/* OpenMesh A40 */
+ 	ATH79_MACH_A60,				/* OpenMesh A60 */
+ 	ATH79_MACH_ALFA_AP120C,			/* ALFA Network AP120C board */
+@@ -294,6 +294,7 @@ enum ath79_mach_type {
+ 	ATH79_MACH_ZBT_WE1526,			/* Zbtlink ZBT-WE1526 */
+ 	ATH79_MACH_ZCN_1523H_2,			/* Zcomax ZCN-1523H-2-xx */
+ 	ATH79_MACH_ZCN_1523H_5,			/* Zcomax ZCN-1523H-5-xx */
++	ATH79_MACH_GENERIC,
+ };
+ 
+ #endif /* _ATH79_MACHTYPE_H */
