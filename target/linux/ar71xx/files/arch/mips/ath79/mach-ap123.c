@@ -81,4 +81,4 @@ static void __init hdr1003gwo_init(void)
 	ath79_register_usb();
 }
 
-MIPS_MACHINE(ATH79_MACH_AP123, "AP123", "Headele HDR1003GWO/AP123", hdr1003gwo_init);
+MIPS_MACHINE(ATH79_MACH_AP123, "AP123", "Headele HDR1003GWO_AP123", hdr1003gwo_init);
